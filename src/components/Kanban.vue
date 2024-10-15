@@ -86,7 +86,7 @@
   }
 
 
-  async function updateKanban(kanban:Kanban){
+  function updateKanban(kanban:Kanban){
     resetUpdatedKanban(kanban)
 
   }
@@ -104,4 +104,3 @@
   }
 
 </script>
-

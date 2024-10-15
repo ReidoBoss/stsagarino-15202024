@@ -74,7 +74,7 @@
   const description = ref('')
 
   var id = 1
-  async function submitKanban(){
+  function submitKanban(){
       const kanbanData:Partial<Kanban> = {
         id:id,
         name: name.value,
@@ -123,7 +123,7 @@
     description.value = kanban.description
   }
 
-  async function updateKanban(kanban:Kanban){
+  function updateKanban(kanban:Kanban){
     const updatedKanban =
       kanbans.value
       .find((_kanban)=>_kanban.id === kanban.id)
@@ -131,12 +131,12 @@
     updatedKanban!.description = kanban.description
   }
 
-  async function updateKanbanStatus(id:number,type:Status){
+  function updateKanbanStatus(id:number,type:Status){
     const kanban = kanbans.value.find((kanban:Kanban) => kanban.id === parseInt(id))
     kanban!.status = type
   }
 
-  async function deleteKanban(id:string){
+  function deleteKanban(id:string){
     const filteredKanban = kanbans.value
       .filter((kanban: Kanban) => kanban.id !== id);
     kanbans.value = filteredKanban
