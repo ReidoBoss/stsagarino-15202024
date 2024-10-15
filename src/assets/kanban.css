@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 10px;
   border-radius: 10px;
+  background: skyblue;
   min-height: 200px;
 }
 
