@@ -73,7 +73,6 @@
   const prop = defineProps<Props>()
   const errorMessage = ref<string>('')
 
-  const url = import.meta.env.VITE_KANBAN_URL
 
   function initiateUpdate(id:string) {
     const kanbans = prop.kanbans

@@ -9,18 +9,21 @@
         type="text"
         placeholder="Work name"
         v-model="name"
+        maxlength="250"
       >
       <br>
-      <input
+      <textarea
+        class="work-description"
         type="text"
         placeholder="Work description"
         v-model="description"
+        maxlength="1000"
       >
+      </textarea>
       <br>
       <button type="submit">Submit</button>
     </form>
   </div>
-
 
   <InputKanbanVue
   />
@@ -114,20 +117,6 @@
     event.dataTransfer!.setData('kanbanID',kanban.id!)
   }
 
-  async function addKanban(kanban:Kanban){
-    try{
-      const response = await axios.post(url+'/kanban',kanban)
-      const statusCode = response.data.code
-
-      if(statusCode === 1){
-        kanbans.value.push(kanban)
-      }
-
-    }catch(error){
-      console.log(error)
-    }
-  }
-
   const isUpdating = ref<boolean>(false)
   function goUpdate(kanban:Kanban){
     isUpdating.value = !isUpdating.value
@@ -171,6 +160,9 @@
   .qwe button{
     font-size: 40px;
   }
-
+  .work-description{
+    width: 413px;
+    height: 175px;
+  }
 </style>
 
