@@ -36,12 +36,13 @@
           {{kanban.description}}
         </span>
         <span v-else>
-          <input
+          <textarea
             type="text"
             :value="kanban.description"
             @input="($event:any)=> kanban.description = $event.target.value"
             placeholder="Description"
           >
+        </textarea>
         </span>
       </p>
       <div v-if="!kanban.isUpdating">

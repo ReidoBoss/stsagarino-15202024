@@ -64,7 +64,6 @@
   import InputKanbanVue from '../components/InputKanban.vue';
 
   import KanbanVue from '../components/Kanban.vue';
-  const url = import.meta.env.VITE_KANBAN_URL
 
   const errorMessage = ref<string>('')
   type isUpdating = {
