@@ -139,7 +139,6 @@
     const updatedKanban =
       kanbans.value
       .find((_kanban)=>_kanban.id === kanban.id)
-    // updatedKanban = kanban
     updatedKanban!.name = kanban.name
     updatedKanban!.description = kanban.description
   }
