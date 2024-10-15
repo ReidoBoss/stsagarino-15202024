@@ -2,10 +2,8 @@
   width: 28%;
   display: flex;
   flex-direction: column;
-  background: red;
   padding: 10px;
   border-radius: 10px;
-  background: skyblue;
   min-height: 200px;
 }
 
