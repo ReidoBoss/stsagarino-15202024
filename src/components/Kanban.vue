@@ -15,7 +15,7 @@
       class="kanban"
       draggable="true"
       v-for="(kanban,index) in kanbans"
-      :key = kanban.id
+      :key = "kanban.id+kanban.name"
       @dragstart="$emit('startDrag', $event, kanban)"
     >
       <h1>

@@ -71,13 +71,15 @@
   const name = ref('')
   const description = ref('')
 
+  var id = 1
   async function submitKanban(){
       const kanbanData:Partial<Kanban> = {
+        id:id,
         name: name.value,
         description:description.value,
         status: 'TODO'
       }
-
+      id++;
       kanbans.value.push(kanbanData as Kanban)
       reset()
 
@@ -103,7 +105,6 @@
 
   function onDrop(event:DragEvent,type:Status){
     const kanbanId = event.dataTransfer?.getData('kanbanID')
-    console.log(event.dataTransfer)
     updateKanbanStatus(kanbanId!,type)
   }
 
@@ -143,10 +144,9 @@
     updatedKanban!.description = kanban.description
   }
 
-  async function updateKanbanStatus(id:string,type:Status){
-    const kanban = kanbans.value.find((kanban:Kanban) => kanban.id === id)
-    console.log(id)
-    // kanban!.status = type
+  async function updateKanbanStatus(id:number,type:Status){
+    const kanban = kanbans.value.find((kanban:Kanban) => kanban.id === parseInt(id))
+    kanban!.status = type
   }
 
   async function deleteKanban(id:string){

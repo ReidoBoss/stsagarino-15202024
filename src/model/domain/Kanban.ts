@@ -3,7 +3,7 @@ import { z } from 'zod'
 export type Status = 'TODO'|'IN_PROGRESS'| 'DONE'
 
 export interface Kanban{
-  id:string
+  id:number
   name: string
   description:string
   status: Status
