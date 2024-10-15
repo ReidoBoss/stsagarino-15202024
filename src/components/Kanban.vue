@@ -15,7 +15,7 @@
       class="kanban"
       draggable="true"
       v-for="(kanban,index) in kanbans"
-      :key = "kanban.id+kanban.name"
+      :key = "kanban.id"
       @dragstart="$emit('startDrag', $event, kanban)"
     >
       <h1>
@@ -87,21 +87,8 @@
 
 
   async function updateKanban(kanban:Kanban){
-    try{
-      const response = await axios.put(url+'/kanban',kanban)
-      if(response.status !== 200){
-        throw new Error("Error: response is not ok")
-      }
-      const data = response.data
-      const statusCode = data.code
+    resetUpdatedKanban(kanban)
 
-      if (statusCode === 7) resetUpdatedKanban(kanban)
-      else if (statusCode === 6) throw new Error('Non Updated!')
-      else if (statusCode === 5) throw new Error('Invalid ID')
-      else if (statusCode === 3) throw new Error('Invalid Status Type')
-    }catch(error){
-      console.log(error)
-    }
   }
   function resetUpdatedKanban(kanban:KanbanWithUpdate){
     const kanbans = prop.kanbans
